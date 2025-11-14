@@ -38,7 +38,7 @@ class SoccerActionDataset(Dataset):
                     # self.load_frames_around_action(sample)
                     # i += 1
                     # if i == 10: break
-            break
+            # break
 
         # self.label_to_idx = {label: idx for idx, label in enumerate(self.labels["labels"])}
         unique_labels = sorted(set(s['label'] for s in self.samples))
