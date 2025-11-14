@@ -63,7 +63,7 @@ class SoccerActionDataset(Dataset):
             if frame_path.exists():
                 frame = cv2.imread(str(frame_path))
                 frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-                frame = cv2.resize(frame, (112, 112))
+                frame = cv2.resize(frame, (182, 182))
                 frames.append(frame)
             else:
                 print("Frame does not exist")
@@ -90,14 +90,14 @@ class SoccerActionDataset(Dataset):
 
 
 
-ds = SoccerActionDataset("./data/720p/train", "Labels-ball.json", num_frames=16)
+# ds = SoccerActionDataset("./data/720p/train", "Labels-ball.json", num_frames=16)
 
-# Test single sample
-frames, label = ds[0]
-print(f"Shape: {frames.shape}")  # Expected: torch.Size([3, 16, 112, 112])
-print(f"Label: {ds.idx_to_label[label]}")
+# # Test single sample
+# frames, label = ds[0]
+# print(f"Shape: {frames.shape}")  # Expected: torch.Size([3, 16, 112, 112])
+# print(f"Label: {ds.idx_to_label[label]}")
 
-# Test batch
-loader = DataLoader(ds, batch_size=8)
-batch = next(iter(loader))
-print(f"Batch shape: {batch[0].shape}")  # Expected: torch.Size([8, 3, 16, 112, 112])
+# # Test batch
+# loader = DataLoader(ds, batch_size=8)
+# batch = next(iter(loader))
+# print(f"Batch shape: {batch[0].shape}")  # Expected: torch.Size([8, 3, 16, 112, 112])
